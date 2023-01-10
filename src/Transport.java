@@ -4,16 +4,34 @@ public class Transport {
     private final int year;
     private final String country;
     private String color;
-    private int maxSpeed;
+    private Integer maxSpeed;
 
-    public Transport(String brand, String model, String color, int maxSpeed) {
+    public Transport(String brand, String model, String color, Integer maxSpeed) {
         this.country = "Russia";
         this.year = 2020;
 
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.maxSpeed = maxSpeed;
+        if (brand == null || brand.isEmpty() || brand.isBlank()) {
+            this.brand = "unknown";
+        } else {
+            this.brand = brand;
+        }
+
+        if (model == null || model.isEmpty() || model.isBlank()) {
+            this.model = "unknown";
+        } else {
+            this.model = model;
+        }
+        if (color == null || color.isEmpty() || color.isBlank()) {
+            this.color = "unknown";
+        } else {
+            this.color = color;
+        }
+        if (maxSpeed == null || color.isEmpty()) {
+            this.maxSpeed = 0;
+        } else {
+            this.maxSpeed = maxSpeed;
+        }
+
     }
 
     public String getBrand() {
@@ -69,10 +87,14 @@ public class Transport {
         return maxSpeed;
     }
 
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(Integer maxSpeed) {
 
 
-        this.maxSpeed = maxSpeed;
+        if (maxSpeed == null || color.isEmpty()) {
+            this.maxSpeed = 0;
+        } else {
+            this.maxSpeed = maxSpeed;
+        }
 
     }
 
